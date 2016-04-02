@@ -6,9 +6,13 @@
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-//
-// YOUR CODE GOES HERE
-//
+  //check for all numbers regex pattern
+  if ()
+  if (input === input.toUpperCase()) {
+    return 'Whoa, chill out!'
+  } else {
+    return 'Whatever.';
+  }
 };
 
 module.exports = Bob;
