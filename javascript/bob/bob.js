@@ -6,10 +6,13 @@
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-  //check for all numbers regex pattern
-  if ()
-  if (input === input.toUpperCase()) {
+  var has_char_regex = /[a-zA-Z]/;
+  if (has_char_regex.test(input) && input === input.toUpperCase()) {
     return 'Whoa, chill out!'
+  } else if (input.slice(-1) === '?') {
+    return 'Sure.'
+  } else if (input.trim() === '') {
+    return 'Fine. Be that way!'
   } else {
     return 'Whatever.';
   }
