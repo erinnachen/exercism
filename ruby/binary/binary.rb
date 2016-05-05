@@ -4,18 +4,17 @@ class Binary
   attr_reader :number
 
   def initialize(number)
-    if number.match(/\A[01]*\Z/)
-      @number = number
-    else
-      raise ArgumentError
-    end
+    raise ArgumentError unless is_binary?(number)
+    @number = number.reverse
   end
 
   def to_decimal
-    decimal = 0
-    number.reverse.chars.each_with_index do |digit, index|
-      decimal += (digit.to_i*(2**index))
+    (0...number.length).reduce(0) do |dec, ind|
+      dec + number[ind].to_i*2**ind
     end
-    decimal
+  end
+
+  def is_binary?(number)
+    !number.match(/[^01]/)
   end
 end
